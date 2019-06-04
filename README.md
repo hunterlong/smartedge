@@ -17,6 +17,13 @@ This application will encrypt a message based off an RSA Private Key named `priv
 - [x] You may only use first order libraries, you may not use any third party libraries or packages.
   - App uses `crypto` and `encoding` packages
   
+## Code Summary
+- [SHA256 digest of input](https://github.com/hunterlong/smartedge/blob/master/main.go#L138)
+- [Creating RSA Key](https://github.com/hunterlong/smartedge/blob/master/main.go#L62)
+- [Openning RSA Key](https://github.com/hunterlong/smartedge/blob/master/main.go#L147)
+- [Using string for RSA Key](https://github.com/hunterlong/smartedge/blob/master/main.go#L163)
+- [Print as JSON](https://github.com/hunterlong/smartedge/blob/master/main.go#L92)
+  
 # Docker
 This application has a multi-stage build for the Docker image. The first image will compile the code and create a binary. The second step copies that binary into a small Alpine Linux image.
 
@@ -32,8 +39,21 @@ docker build -t smartedge .
 docker run -it smartedge
 ```
 
+##### Mounting Volume
+```bash
+docker run -it -v /app:/my_local_directory smartedge
+```
+
+##### Run with Custom Message
+```bash
+docker run -it smartedge smartedge "this will be encrypted!"
+```
+
 #### Additional Information
 The container will start in the `/app` directory. You can mount this folder to your localhost to share private keys.
 
 # Continuous Integration
+
 Travis-CI will run the Continuous Integration Testing for this application.
+
+[![Build Status](https://travis-ci.com/hunterlong/smartedge.svg?branch=master)](https://travis-ci.com/hunterlong/smartedge)

@@ -54,8 +54,8 @@ func main() {
 
 // handleError will print the error and exit the application
 func handleError(err error) {
-	fmt.Println(err)
-	os.Exit(2)
+	fmt.Println(err.Error())
+	os.Exit(1)
 }
 
 // CreatePrivateKey will create a private.pem file that includes the private key
