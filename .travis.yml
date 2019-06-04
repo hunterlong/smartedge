@@ -1,0 +1,19 @@
+os:
+  - linux
+
+language: go
+go: 1.12.1
+go_import_path: github.com/hunterlong/smartedge
+
+sudo: required
+
+services:
+  - docker
+
+install:
+  - go get github.com/stretchr/testify
+  - go get
+  - go install
+
+script:
+  - go test -v ./...
