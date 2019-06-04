@@ -18,6 +18,8 @@ This application will encrypt a message based off an RSA Private Key named `priv
   - App uses `crypto` and `encoding` packages
   
 ## Code Summary
+This application smarts with creating a `Key` struct that will have other methods extend off it. The `Key` struct has a method called `Encrypt` which will input a string to encrypt and then return a `Message` struct. This `Message` struct includes the original message, the signature, and the public key used to encrypt the message. To output the JSON result of the `Message`, it has a method called `JSON` which will print the JSON object as a string.
+
 - [SHA256 digest of input](https://github.com/hunterlong/smartedge/blob/master/main.go#L138)
 - [Creating RSA Key](https://github.com/hunterlong/smartedge/blob/master/main.go#L62)
 - [Openning RSA Key](https://github.com/hunterlong/smartedge/blob/master/main.go#L147)
